@@ -4,6 +4,7 @@ using SystemOfBankAccount.ValueObject;
 
 namespace SystemOfBankAccount
 {
+
     /// <summary>
     ///  Класс Банковского аккаунта
     /// </summary>
