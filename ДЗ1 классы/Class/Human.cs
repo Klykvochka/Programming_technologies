@@ -34,58 +34,30 @@ namespace ДЗ1_классы.Class
         public Human(int Height_, int Weight_, DateTime Birthday_, string FirstName_, string LastName_)
             {
             bool flag = IntValidator.Validate(Height_);
-
-            if (!flag)
-            {
-                Console.WriteLine("Вы указали с ошибкой параметр Heght");
-            }
-            else
-            {
-            Height = Height_;
-            }
-
-            flag = IntValidator.Validate(Weight_);
-
-            if (!flag)
-            {
-                Console.WriteLine("Вы указали с ошибкой параметр Weght");
-            }
-            else
-            {
-                Weight = Weight_;
-            }
-
-
+            if (!flag) 
+                throw new ArgumentOutOfRangeException(nameof(flag), "Вы указали с ошибкой параметр Heght"); 
+            Height = Height_; 
+            
+            flag = IntValidator.Validate(Weight_); 
+            if (!flag) 
+                throw new ArgumentOutOfRangeException(nameof(flag), "Вы указали с ошибкой параметр Weght"); 
+            Weight = Weight_; 
+            
             if (Birthday_ > DateTime.Now) 
-                {
-                    Console.WriteLine("Вы указали с ошибкой параметр Birthday");
-                }
-                else
-                {
-                   Birthday = Birthday_;
-                }
+                throw new ArgumentOutOfRangeException(nameof(flag), "Вы указали с ошибкой параметр Birthday"); 
+            Birthday = Birthday_; 
+            
+            flag = StringValidator.Validate(FirstName_); 
+            if (flag) 
+                throw new ArgumentException("Вы указали с ошибкой параметр FirstName", nameof(flag)); 
+            FirstName = FirstName_; 
+            
+            flag = StringValidator.Validate(LastName_); 
+            if (flag) 
+                throw new ArgumentException("Вы указали с ошибкой параметр LastName", nameof(flag) ); 
+            LastName = LastName_;
 
-            flag = StringValidator.Validate(FirstName_);
-            if (flag)
-            {
-                Console.WriteLine("Вы указали с ошибкой параметр FirstName");
-            }
-            else
-            {
-                FirstName = FirstName_;
-            }
-
-            flag = StringValidator.Validate(LastName_);
-            if (flag)
-            {
-                Console.WriteLine("Вы указали с ошибкой параметр LastName");
-            }
-            else
-            {
-                LastName = LastName_; 
-            }
-
-            }
+        }
         // если нужно изменить объеты в классе нужна static
         // { get; private set; } - автоматическое свойство
         // get - можно получить | private set - изменить
