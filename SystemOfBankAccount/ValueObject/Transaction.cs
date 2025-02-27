@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,8 @@ namespace SystemOfBankAccount.ValueObject
     /// </summary>
     struct Transaction
     {
+
+
         /// <summary>
         ///  Деньги
         /// </summary>
@@ -37,6 +40,11 @@ namespace SystemOfBankAccount.ValueObject
             Amount = amount;
             Date = date;
             Note = note;
+        }
+
+        public override string ToString()
+        {
+            return $"Date: {Date}\tAmount: {Amount}\tNote:{Note}";
         }
     }
 }
