@@ -7,7 +7,7 @@ using SystemOfBankAccount.Base;
 
 namespace SystemOfBankAccount
 {
-    internal class GiftCartAccount : BankAccount
+    class GiftCartAccount : BankAccount
     {
         public GiftCartAccount(string owner, decimal InitialBalance) : base(owner, InitialBalance)
         {

@@ -12,7 +12,7 @@ namespace SystemOfBankAccount.Base
     /// </summary>
     abstract class BankAccount
     {
-        private List<Transaction> _allTransaction = new List<Transaction>();
+        protected List<Transaction> _allTransaction = new List<Transaction>();
         private static int a_accountNumberSeed = 1000000000;
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace SystemOfBankAccount.Base
         /// <param name="note">Замека.</param>
         public void MakeDeposit(decimal amount, DateTime date, string note)
         {
-            if (amount <= 0)
+            if (amount < 0)
 
                 throw new ArgumentOutOfRangeException(nameof(amount), "Amount of deposit must be positive.");
 
@@ -83,7 +83,7 @@ namespace SystemOfBankAccount.Base
         /// <param name="amount">Сумма операции.</param>
         /// <param name="date">Дата операции.</param>
         /// <param name="note">Замека.</param>
-        public void MakeWithdrawal(decimal amount, DateTime date, string note)
+        public virtual void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
             if (amount <= 0)
 
@@ -94,9 +94,6 @@ namespace SystemOfBankAccount.Base
 
             var deposit = new Transaction(-amount, date, note);
             _allTransaction.Add(deposit);
-
-
-
         }
 
         public string GetAccountHistory()

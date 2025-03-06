@@ -21,14 +21,13 @@ namespace SystemOfB
             account1.MakeDeposit(1000m, DateTime.Now, "wefrwer");
             account1.MakeDeposit(20m, DateTime.Now, "rrwer");
             account1.MakeWithdrawal(10m, DateTime.Now, "wtwer");
-            Console.WriteLine($" Account {account1.Number.Value} was create for {account1.Owner} with {account1.Balance} initial balance.");
-
-            
 
             var account2 = new LineOfCreditAccount("KJBuyvf", 14300);
             Console.WriteLine($" Account {account2.Number.Value} was create for {account2.Owner} with {account2.Balance} initial balance.");
             account2.MakeDeposit(1000m, DateTime.Now, "wefrwer");
             account2.MakeDeposit(20m, DateTime.Now, "rrwer");
+            account2.MakeWithdrawal(1000m, DateTime.Now, "wtwer");
+
 
 
             Console.WriteLine(account1.GetAccountHistory());
