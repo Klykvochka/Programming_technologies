@@ -35,9 +35,9 @@ namespace Programs
             Console.WriteLine();
 
             Console.WriteLine($"Количество резервуаров: {tank.Length}, установок: {units.Length}");
-            var foundUnit = Units.FindUnit(units, tank, "Резервуар 2");
+            var foundUnit = Units.FindUnit(units, tank, "Резервуар 35");
             var factory = Factories.FindFactories(factories, foundUnit);
-            Console.WriteLine($"Резервуар 2 принадлежит установке {foundUnit.Name} и заводу {factory.Name}");
+            Console.WriteLine($"Резервуар 35 принадлежит установке {foundUnit.Name} и заводу {factory.Name}");
 
 
             var totalVolume = Tank.GetTotalVolume(tank);
