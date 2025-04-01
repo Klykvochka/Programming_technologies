@@ -6,25 +6,50 @@ using System.Threading.Tasks;
 
 namespace Домашняя_работа
 {
+    /// <summary>
+    /// Класс игра "Угадай число"
+    /// </summary>
+    ///<param name="statistics">Статистика</param>
+    ///<param name="minRange">минимальная граница</param>
+    ///<param name="maxRange">максимальная граница</param>
+    ///<param name="MaxAttempts">максимальное число попыток</param>
     internal class Game : Igame
     {
+        
         private Istatistic statistics { set; get; }
         private int minRange = 1;
         private int maxRange = 100;
         private int MaxAttempts = -1;
 
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="statistic">статистика</param>
         public Game(Istatistic statistic) { statistics = statistic; }
+
+        /// <summary>
+        /// Изменить границы
+        /// </summary>
+        /// <param name="min">минимальная граница</param>
+        /// <param name="max">максимальная граница</param>
         public void SetRange(int min, int max)
         {
             minRange = min;
             maxRange = max;
         }
 
+        /// <summary>
+        /// Изменить количество попыток
+        /// </summary>
+        /// <param name="maxAttempts">Максимальное число попыток</param>
         public void SetMaxAttempts(int maxAttempts)
         {
             MaxAttempts = maxAttempts;
         }
 
+        /// <summary>
+        /// Метод выбора сложности игры
+        /// </summary>
         public void ChooseDifficulty()
         {
             Console.WriteLine("\nВыберите сложность:");
@@ -32,6 +57,7 @@ namespace Домашняя_работа
             Console.WriteLine("2. Средняя (10 попыток)");
             Console.WriteLine("3. Сложная (5 попыток)");
             Console.WriteLine("Ваш выбор: ");
+
 
             int difficulty;
 
@@ -55,6 +81,9 @@ namespace Домашняя_работа
                     break;
             }
         }
+        /// <summary>
+        /// Метод игра
+        /// </summary>
         public void Play()
         {
 

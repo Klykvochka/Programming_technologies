@@ -6,14 +6,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Домашняя_работа;
-
+/// <summary>
+/// класс Меню
+/// </summary>
 internal class Menu
 {
 
-
+    /// <summary>
+    /// Игра
+    /// </summary>
     public Game Game { set; get; }
+    /// <summary>
+    /// Статистика
+    /// </summary>
     public Istatistic Statatistic { set; get; }
+    /// <summary>
+    /// Границы
+    /// </summary>
     public ChangeRange change { set; get; }
+    /// <summary>
+    /// Конструктор с парамеетрами
+    /// </summary>
+    /// <param name="statistic">Статистика</param>
+    /// <param name="changee">Границы</param>
     public Menu(Istatistic statistic, ChangeRange changee)
     {
         Statatistic = statistic;
@@ -21,6 +36,9 @@ internal class Menu
         Game = new Game(statistic);
     }
 
+    /// <summary>
+    /// Вывод меню на экран
+    /// </summary>
     public void DisplayMenu()
     {
 
@@ -29,6 +47,9 @@ internal class Menu
         Console.WriteLine("Введите номер");
 
     }
+    /// <summary>
+    /// Метод реализовывает меню
+    /// </summary>
     public void Run()
     {
         while (true)

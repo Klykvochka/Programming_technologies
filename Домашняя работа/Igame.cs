@@ -5,8 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Домашняя_работа;
+
+/// <summary>
+/// Интерфейс игры
+/// </summary>
 internal interface Igame
 {
+    /// <summary>
+    /// Метод игра
+    /// </summary>
     public void Play();
 }
 

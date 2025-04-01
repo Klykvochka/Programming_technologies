@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace Домашняя_работа
 {
+    /// <summary>
+    /// Класс изменения границ 
+    /// </summary>
     internal class ChangeRange
     {
 
+        /// <summary>
+        /// Метод изменения границ 
+        /// </summary>
+        /// <param name="game">Игра</param>
+ 
         public void ChangeRangee(Game game)
         {
+            
             int minRange; int maxRange;
             Console.WriteLine("Изменение границ");
             Console.WriteLine("Минимальная граница:");
