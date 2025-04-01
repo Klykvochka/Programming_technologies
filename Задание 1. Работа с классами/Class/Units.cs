@@ -67,7 +67,6 @@ namespace Задание_1._Работа_с_классами
         public static Units FindUnit(Units[] units, Tank[] tank, string name)
         {
 
-
             Tank Ftank = tank.FirstOrDefault(t=>(t.Name == name));
             if (Ftank == null)
             
