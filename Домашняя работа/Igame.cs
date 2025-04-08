@@ -9,7 +9,7 @@ namespace Домашняя_работа;
 /// <summary>
 /// Интерфейс игры
 /// </summary>
-internal interface Igame
+internal interface IGame
 {
     /// <summary>
     /// Метод игра

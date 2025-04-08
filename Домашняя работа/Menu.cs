@@ -15,11 +15,11 @@ internal class Menu
     /// <summary>
     /// Игра
     /// </summary>
-    public Game Game { set; get; }
+    public IGame Game { set; get; }
     /// <summary>
     /// Статистика
     /// </summary>
-    public Istatistic Statatistic { set; get; }
+    public IStatistic Statatistic { set; get; }
     /// <summary>
     /// Границы
     /// </summary>
@@ -29,11 +29,11 @@ internal class Menu
     /// </summary>
     /// <param name="statistic">Статистика</param>
     /// <param name="changee">Границы</param>
-    public Menu(Istatistic statistic, ChangeRange changee)
+    public Menu(IStatistic statistic, IGame game, ChangeRange changee)
     {
         Statatistic = statistic;
         change = changee;
-        Game = new Game(statistic);
+        Game = game;
     }
 
     /// <summary>

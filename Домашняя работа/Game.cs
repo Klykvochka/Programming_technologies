@@ -13,10 +13,10 @@ namespace Домашняя_работа
     ///<param name="minRange">минимальная граница</param>
     ///<param name="maxRange">максимальная граница</param>
     ///<param name="MaxAttempts">максимальное число попыток</param>
-    internal class Game : Igame
+    internal class Game : IGame
     {
         
-        private Istatistic statistics { set; get; }
+        private IStatistic statistics { set; get; }
         private int minRange = 1;
         private int maxRange = 100;
         private int MaxAttempts = -1;
@@ -25,7 +25,7 @@ namespace Домашняя_работа
         /// Конструктор с параметрами
         /// </summary>
         /// <param name="statistic">статистика</param>
-        public Game(Istatistic statistic) { statistics = statistic; }
+        public Game(IStatistic statistic) { statistics = statistic; }
 
         /// <summary>
         /// Изменить границы

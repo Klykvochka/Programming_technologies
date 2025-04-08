@@ -8,7 +8,7 @@ namespace Домашняя_работа;
 /// <summary>
 /// Класс статистики
 /// </summary>
-internal class Statistics : Istatistic
+internal class Statistics : IStatistic
 {
     private List<int> Attempts = new List<int>();
 
