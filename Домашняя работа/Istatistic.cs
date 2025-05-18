@@ -8,7 +8,7 @@ namespace Домашняя_работа;
 /// <summary>
 /// Интерфейс статистики
 /// </summary>
-internal interface IStatistic
+public interface IStatistic
 {
     /// <summary>
     /// Метод добавления попытки в список 

@@ -8,33 +8,36 @@ using System.Threading.Tasks;
 namespace Домашняя_работа;
 /// <summary>
 /// класс Меню
+/// </summary>    
+/// <summary>
+/// Конструктор с парамеетрами
 /// </summary>
-internal class Menu
+/// <param name="statistic">Статистика</param>
+/// <param name="game">Игра</param>
+/// <param name="changee">Границы</param>
+/// <param name="message">Ввод вывод сообщений</param>
+public class Menu(IStatistic statistic, IGame game, IChangeRange changee, IInputAndOutputMessage message)
 {
 
     /// <summary>
     /// Игра
     /// </summary>
-    public IGame Game { set; get; }
+    private IGame Game = game;
+
     /// <summary>
     /// Статистика
     /// </summary>
-    public IStatistic Statatistic { set; get; }
+    private IStatistic Statatistic = statistic;
+
     /// <summary>
     /// Границы
     /// </summary>
-    public ChangeRange change { set; get; }
+    private IChangeRange Change = changee;
+
     /// <summary>
-    /// Конструктор с парамеетрами
+    /// Ввод/Вывод сообщения
     /// </summary>
-    /// <param name="statistic">Статистика</param>
-    /// <param name="changee">Границы</param>
-    public Menu(IStatistic statistic, IGame game, ChangeRange changee)
-    {
-        Statatistic = statistic;
-        change = changee;
-        Game = game;
-    }
+    private IInputAndOutputMessage Message = message;
 
     /// <summary>
     /// Вывод меню на экран
@@ -43,8 +46,8 @@ internal class Menu
     {
 
 
-        Console.WriteLine("Menu:\t1. Изменить границы\n\t2. Играть\n\t3. Статистика\n\t4. Выход");
-        Console.WriteLine("Введите номер");
+        Message.GetOutput("Menu:\t1. Изменить границы\n\t2. Играть\n\t3. Статистика\n\t4. Выход");
+        Message.GetOutput("Введите номер");
 
     }
     /// <summary>
@@ -55,15 +58,15 @@ internal class Menu
         while (true)
         {
             DisplayMenu();
-            int choce;
-            while (!int.TryParse(Console.ReadLine(), out choce) || choce < 1 || choce > 4)
+            int choce = Message.GetInput();
+            while (choce < 1 || choce > 4)
             {
-                Console.WriteLine("Error! Input another number in [1;4].");
+                Message.GetOutput("Error! Input another number in [1;4].");
             }
             switch (choce)
             {
                 case 1:
-                    change.ChangeRangee(Game);
+                    Change.ChangeRangee(Game);
                     break;
                 case 2:
                     Game.ChooseDifficulty();
@@ -73,7 +76,7 @@ internal class Menu
                     Statatistic.DisplayStatistics();
                     break;
                 case 4:
-                    Console.WriteLine("Выход из игры!");
+                    Message.GetOutput("Выход из игры!");
                     return;
             }
         }

@@ -4,116 +4,117 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Домашняя_работа
+namespace Домашняя_работа;
+
+/// <summary>
+/// Класс игра "Угадай число"
+/// </summary>
+///<param name="statistics">Статистика</param>
+///<param name="minRange">минимальная граница</param>
+///<param name="maxRange">максимальная граница</param>
+///<param name="MaxAttempts">максимальное число попыток</param>
+///<param name="message">Ввод вывод сообщений</param>
+public class Game(IStatistic statistic, IInputAndOutputMessage message) : IGame
 {
+
+    private IStatistic Statistics = statistic;
+    private int minRange = 1;
+    private int maxRange = 100;
+    private int MaxAttempts = -1;
     /// <summary>
-    /// Класс игра "Угадай число"
+    /// Ввод/Вывод сообщения
     /// </summary>
-    ///<param name="statistics">Статистика</param>
-    ///<param name="minRange">минимальная граница</param>
-    ///<param name="maxRange">максимальная граница</param>
-    ///<param name="MaxAttempts">максимальное число попыток</param>
-    internal class Game : IGame
+    private IInputAndOutputMessage Message = message;
+
+
+    /// <summary>
+    /// Изменить границы
+    /// </summary>
+    /// <param name="min">минимальная граница</param>
+    /// <param name="max">максимальная граница</param>
+    public void SetRange(int min, int max)
     {
-        
-        private IStatistic statistics { set; get; }
-        private int minRange = 1;
-        private int maxRange = 100;
-        private int MaxAttempts = -1;
+        minRange = min;
+        maxRange = max;
+    }
 
-        /// <summary>
-        /// Конструктор с параметрами
-        /// </summary>
-        /// <param name="statistic">статистика</param>
-        public Game(IStatistic statistic) { statistics = statistic; }
+    /// <summary>
+    /// Изменить количество попыток
+    /// </summary>
+    /// <param name="maxAttempts">Максимальное число попыток</param>
+    public void SetMaxAttempts(int maxAttempts)
+    {
+        MaxAttempts = maxAttempts;
+    }
 
-        /// <summary>
-        /// Изменить границы
-        /// </summary>
-        /// <param name="min">минимальная граница</param>
-        /// <param name="max">максимальная граница</param>
-        public void SetRange(int min, int max)
+    /// <summary>
+    /// Метод выбора сложности игры
+    /// </summary>
+    public void ChooseDifficulty()
+    {
+        Message.GetOutput("\nВыберите сложность:");
+        Message.GetOutput("1. Легкая (без ограничений)");
+        Message.GetOutput("2. Средняя (10 попыток)");
+        Message.GetOutput("3. Сложная (5 попыток)");
+        Message.GetOutput("Ваш выбор: ");
+
+
+        int difficulty;
+
+        do { difficulty = Message.GetInput(); }
+        while (difficulty < 1 || difficulty > 3);
+
+        switch (difficulty)
         {
-            minRange = min;
-            maxRange = max;
+            case 1:
+                SetMaxAttempts(-1);
+                Message.GetOutput("Выбрана легкая сложность.\n");
+                break;
+            case 2:
+                SetMaxAttempts(10);
+                Message.GetOutput("Выбрана средняя сложность.\n");
+                break;
+            case 3:
+                SetMaxAttempts(5);
+                Message.GetOutput("Выбрана тяжелая сложность.\n");
+                break;
         }
+    }
 
-        /// <summary>
-        /// Изменить количество попыток
-        /// </summary>
-        /// <param name="maxAttempts">Максимальное число попыток</param>
-        public void SetMaxAttempts(int maxAttempts)
+    /// <summary>
+    /// Метод игра
+    /// </summary>
+    public void Play()
+    {
+
+        int attempts = 0;
+        int guess, number = new Random().Next(minRange, maxRange + 1);
+        for (; ; )
         {
-            MaxAttempts = maxAttempts;
-        }
+            attempts++;
+            Message.GetOutput("Введите число");
 
-        /// <summary>
-        /// Метод выбора сложности игры
-        /// </summary>
-        public void ChooseDifficulty()
-        {
-            Console.WriteLine("\nВыберите сложность:");
-            Console.WriteLine("1. Легкая (без ограничений)");
-            Console.WriteLine("2. Средняя (10 попыток)");
-            Console.WriteLine("3. Сложная (5 попыток)");
-            Console.WriteLine("Ваш выбор: ");
-
-
-            int difficulty;
-
-            while (!int.TryParse(Console.ReadLine(), out difficulty) || difficulty < 1 || difficulty > 3)
+            do { guess = Message.GetInput(); }
+            while (guess < minRange || guess > maxRange);
+            //{
+            //    Message.GetOutput($"Error! Input another number in [{minRange};{maxRange}]");
+            //}
+            if (guess == number)
             {
-                Console.WriteLine("Error! Input another number in [1;4].");
+                Message.GetOutput("You are win!\n");
+                Statistics.AddAttempt(attempts);
+                break;
             }
-            switch (difficulty)
+
+            if (guess > number) Message.GetOutput("Your number is larger.\n");
+            else Message.GetOutput("Your number is less.\n");
+
+            if (MaxAttempts != -1 && attempts >= MaxAttempts)
             {
-                case 1:
-                    SetMaxAttempts(-1);
-                    Console.WriteLine("Выбрана легкая сложность.\n");
-                    break;
-                case 2:
-                    SetMaxAttempts(10);
-                    Console.WriteLine("Выбрана средняя сложность.\n");
-                    break;
-                case 3:
-                    SetMaxAttempts(5);
-                    Console.WriteLine("Выбрана тяжелая сложность.\n");
-                    break;
-            }
-        }
-        /// <summary>
-        /// Метод игра
-        /// </summary>
-        public void Play()
-        {
-
-            int attempts = 0;
-            int guess, number = new Random().Next(minRange, maxRange + 1);
-            for (; ; )
-            {
-                attempts++;
-                Console.WriteLine("Введите число");
-
-                while (!int.TryParse(Console.ReadLine(), out guess) || guess < minRange || guess > maxRange)
-                {
-                    Console.WriteLine($"Error! Input another number in [{minRange};{maxRange}]");
-                }
-                if (guess == number)
-                {
-                    Console.WriteLine("You are win!");
-                    statistics.AddAttempt(attempts);
-                    break;
-                }
-                if (guess > number) Console.WriteLine("Your number is larger.");
-                else Console.WriteLine("Your number is less.");
-
-
-                if (MaxAttempts != -1 && attempts >= MaxAttempts)
-                {
-                    Console.WriteLine($"Вы исчерпали все {MaxAttempts} попыток. Загаданное число было {number}.");
-                    return;
-                }
+                Message.GetOutput($"Вы исчерпали все {MaxAttempts} попыток. Загаданное число было {number}.");
+                return;
             }
         }
     }
 }
+

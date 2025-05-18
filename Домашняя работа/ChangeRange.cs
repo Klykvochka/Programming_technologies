@@ -4,37 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Домашняя_работа
+namespace Домашняя_работа;
+/// <summary>
+/// Класс изменения границ 
+/// </summary>
+public class ChangeRange(IInputAndOutputMessage message) : IChangeRange
 {
+    private IInputAndOutputMessage Message = message;
+
     /// <summary>
-    /// Класс изменения границ 
+    /// Метод изменения границ 
     /// </summary>
-    internal class ChangeRange
+    /// <param name="game">Игра</param>
+    public void ChangeRangee(IGame game)
     {
 
-        /// <summary>
-        /// Метод изменения границ 
-        /// </summary>
-        /// <param name="game">Игра</param>
- 
-        public void ChangeRangee(Game game)
-        {
+        int minRange; int maxRange;
+
+        Message.GetOutput("Изменение границ");
+
+        Message.GetOutput("Минимальная граница:");
+
+        do { minRange = Message.GetInput();
             
-            int minRange; int maxRange;
-            Console.WriteLine("Изменение границ");
-            Console.WriteLine("Минимальная граница:");
-            while (!int.TryParse(Console.ReadLine(), out minRange) || minRange < 1 || minRange > 100)
-            {
-                Console.WriteLine("Error! Input another number.");
-            }
-            Console.WriteLine("Максимальная граница");
-            while (!int.TryParse(Console.ReadLine(), out maxRange) || maxRange < 1 || maxRange > 100)
-            {
-                Console.WriteLine("Error! Input another number.");
-            }
-            if (minRange > maxRange)
-                Console.WriteLine("Error! Некорректный ввод границ.");
-            game.SetRange(minRange, maxRange);
         }
+        while (minRange < 1 || minRange > 99);
+
+        Message.GetOutput("Максимальная граница");
+
+        do { maxRange = Message.GetInput(); }
+        while (maxRange < 1 || maxRange > 100 || minRange > maxRange);
+
+        game.SetRange(minRange, maxRange);
     }
 }
+

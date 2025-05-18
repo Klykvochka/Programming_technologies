@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Домашняя_работа;
 /// <summary>
 /// Класс статистики
 /// </summary>
-internal class Statistics : IStatistic
+public class Statistics(IInputAndOutputMessage message) : IStatistic
 {
     private List<int> Attempts = new List<int>();
+
+    /// <summary>
+    /// Ввод/Вывод сообщения
+    /// </summary>
+    private IInputAndOutputMessage Message = message;
 
     /// <summary>
     /// Метод добавления попытки в список 
@@ -52,11 +53,9 @@ internal class Statistics : IStatistic
         int max = MaxAttempts();
         int min = MinAttempts();
         double average = AverageAttempts();
-        Console.WriteLine($"Максимальное число попыток = {max}\n" +
+        Message.GetOutput($"Максимальное число попыток = {max}\n" +
                 $"Минимальное количество попыток = {min}\n" +
                 $"Среднее число попыток = {average}\n");
     }
-
-
 }
 

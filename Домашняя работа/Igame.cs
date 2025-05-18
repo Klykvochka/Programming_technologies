@@ -9,8 +9,26 @@ namespace Домашняя_работа;
 /// <summary>
 /// Интерфейс игры
 /// </summary>
-internal interface IGame
+public interface IGame
 {
+    /// <summary>
+    /// Изменить границы
+    /// </summary>
+    /// <param name="min">минимальная граница</param>
+    /// <param name="max">максимальная граница</param>
+    public void SetRange(int min, int max);
+
+    /// <summary>
+    /// Изменить количество попыток
+    /// </summary>
+    /// <param name="maxAttempts">Максимальное число попыток</param>
+    public void SetMaxAttempts(int maxAttempts);
+
+    /// <summary>
+    /// Метод выбора сложности игры
+    /// </summary>
+    public void ChooseDifficulty();
+
     /// <summary>
     /// Метод игра
     /// </summary>
