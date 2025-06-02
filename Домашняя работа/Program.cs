@@ -9,7 +9,7 @@ namespace Домашняя_работа
         {
             
             var serviceProvider = new ServiceCollection()
-                .AddSingleton<IInputAndOutputMessage, InputAndOutputMessage>()
+                .<IInputAndOutputMessage, InputAndOutputMessage>()
                 .AddSingleton<IStatistic, Statistics>(provider =>
                     new Statistics(
                         provider.GetRequiredService<IInputAndOutputMessage>()))
@@ -19,7 +19,7 @@ namespace Домашняя_работа
                 .AddSingleton<IGame, Game>(provider =>
                     new Game(
                         provider.GetRequiredService<IStatistic>(),
-                        provider.GetRequiredService<IInputAndOutputMessage>()))
+                        provider.GetRequiredService<IInputAndOutputMessage>())) 
                 .AddSingleton<Menu>(provider =>
                     new Menu(
                         provider.GetRequiredService<IStatistic>(),
@@ -28,7 +28,7 @@ namespace Домашняя_работа
                         provider.GetRequiredService<IInputAndOutputMessage>()))
                 .BuildServiceProvider();
 
-
+ 
             var menu = serviceProvider.GetService<Menu>();
             menu?.Run();
         }

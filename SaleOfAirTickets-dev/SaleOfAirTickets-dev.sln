@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E7A69174-D5DB-4A38-8837-8771D07B4CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTicket.Domain", "Domain\SaleOfAirTicket.Domain\SaleOfAirTicket.Domain.csproj", "{8072D26A-0B06-4F3B-B2CB-5438C14561AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTicket.Domain.ValueObjects", "Domain\SaleOfAirTicket.Domain.ValueObjects\SaleOfAirTicket.Domain.ValueObjects.csproj", "{E3363243-0B70-4E0A-BD76-715AA0EA5561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTicket.Domain.Repositories.Abstractions", "Domain\SaleOfAirTicket.Domain.Repositories.Abstractions\SaleOfAirTicket.Domain.Repositories.Abstractions.csproj", "{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{CB384511-F9C4-44B8-B2E9-49C0919B2EEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTickets.Application.Models", "Application\SaleOfAirTickets.Application.Models\SaleOfAirTickets.Application.Models.csproj", "{5A30BFE9-0684-449C-8311-56ED11387899}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTickets.Application.Services", "Application\SaleOfAirTickets.Application.Services\SaleOfAirTickets.Application.Services.csproj", "{8AE67050-89D7-4E1C-BBEE-3F98BC213755}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6809129E-5774-4072-93D3-66E4FD3FF001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTickets.Infrastructure.EntityFramework", "Infrastructure\SateOfAirTickets.Infrastructure.EntityFramework\SaleOfAirTickets.Infrastructure.EntityFramework.csproj", "{B80666A5-6619-45AA-9C28-BEB25CDB2969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTickets.Infrastructure.Repositories.Implementations", "Infrastructure\SaleOfAirTickets.Infrastructure.Repositories.Implementations\SaleOfAirTickets.Infrastructure.Repositories.Implementations.csproj", "{19B267F2-A72D-4968-AA01-1B4EC95FCB7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{C1849D9A-6482-48EC-BA0C-7D9E47B31758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleOfAirTickets.WebHost", "Presentation\SaleOfAirTickets.WebHost\SaleOfAirTickets.WebHost.csproj", "{181775B5-7ABD-4400-A7F9-4A39F3658EB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8072D26A-0B06-4F3B-B2CB-5438C14561AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8072D26A-0B06-4F3B-B2CB-5438C14561AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8072D26A-0B06-4F3B-B2CB-5438C14561AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8072D26A-0B06-4F3B-B2CB-5438C14561AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3363243-0B70-4E0A-BD76-715AA0EA5561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3363243-0B70-4E0A-BD76-715AA0EA5561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3363243-0B70-4E0A-BD76-715AA0EA5561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3363243-0B70-4E0A-BD76-715AA0EA5561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB384511-F9C4-44B8-B2E9-49C0919B2EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB384511-F9C4-44B8-B2E9-49C0919B2EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB384511-F9C4-44B8-B2E9-49C0919B2EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB384511-F9C4-44B8-B2E9-49C0919B2EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A30BFE9-0684-449C-8311-56ED11387899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A30BFE9-0684-449C-8311-56ED11387899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A30BFE9-0684-449C-8311-56ED11387899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A30BFE9-0684-449C-8311-56ED11387899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE67050-89D7-4E1C-BBEE-3F98BC213755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE67050-89D7-4E1C-BBEE-3F98BC213755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE67050-89D7-4E1C-BBEE-3F98BC213755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE67050-89D7-4E1C-BBEE-3F98BC213755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B80666A5-6619-45AA-9C28-BEB25CDB2969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B80666A5-6619-45AA-9C28-BEB25CDB2969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B80666A5-6619-45AA-9C28-BEB25CDB2969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B80666A5-6619-45AA-9C28-BEB25CDB2969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B267F2-A72D-4968-AA01-1B4EC95FCB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B267F2-A72D-4968-AA01-1B4EC95FCB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B267F2-A72D-4968-AA01-1B4EC95FCB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B267F2-A72D-4968-AA01-1B4EC95FCB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181775B5-7ABD-4400-A7F9-4A39F3658EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181775B5-7ABD-4400-A7F9-4A39F3658EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181775B5-7ABD-4400-A7F9-4A39F3658EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181775B5-7ABD-4400-A7F9-4A39F3658EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8072D26A-0B06-4F3B-B2CB-5438C14561AB} = {E7A69174-D5DB-4A38-8837-8771D07B4CDA}
+		{E3363243-0B70-4E0A-BD76-715AA0EA5561} = {E7A69174-D5DB-4A38-8837-8771D07B4CDA}
+		{1D745A82-F08A-46AF-B4DC-7F4BEE56FB21} = {E7A69174-D5DB-4A38-8837-8771D07B4CDA}
+		{5A30BFE9-0684-449C-8311-56ED11387899} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{8AE67050-89D7-4E1C-BBEE-3F98BC213755} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{B80666A5-6619-45AA-9C28-BEB25CDB2969} = {6809129E-5774-4072-93D3-66E4FD3FF001}
+		{19B267F2-A72D-4968-AA01-1B4EC95FCB7D} = {6809129E-5774-4072-93D3-66E4FD3FF001}
+		{181775B5-7ABD-4400-A7F9-4A39F3658EB7} = {C1849D9A-6482-48EC-BA0C-7D9E47B31758}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0395E66-AE83-4060-8C36-D0055C1D1A9B}
+	EndGlobalSection
+EndGlobal
